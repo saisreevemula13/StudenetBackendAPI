@@ -3,3 +3,10 @@
 ################################################################################
 
 /.vs/StudentWebAPI/v17/DocumentLayout.json
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+
