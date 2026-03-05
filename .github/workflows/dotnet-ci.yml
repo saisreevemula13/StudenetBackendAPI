@@ -6,12 +6,11 @@ on:
       - main
 
 jobs:
-  build:
 
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -37,3 +36,20 @@ jobs:
       with:
         name: studentwebapi-build
         path: publish
+
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: studentwebapi-build
+
+    - name: Simulate deployment
+      run: |
+        echo "Deploying application..."
+        ls
