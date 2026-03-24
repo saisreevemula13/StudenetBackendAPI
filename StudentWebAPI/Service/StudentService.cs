@@ -1,43 +1,111 @@
-﻿using StudentWebAPI.Data;
+﻿using StudentWebAPI.DTO;
 using StudentWebAPI.Model;
+using StudentWebAPI.Repository;
 
 namespace StudentWebAPI.Service
 {
-    public class StudentService
+    public class StudentService : IStudentService
     {
-        private readonly InMemoryStudentStore _store;
+        private readonly IStudentRepository _repository;
 
-        public StudentService(InMemoryStudentStore store)
+        public StudentService(IStudentRepository repo)
         {
-            _store = store;
+            _repository = repo;
         }
 
-        public List<Student> GetAll()
+        public async Task<IEnumerable<StudentDto>> GetAllStudents()
         {
-            return _store.Students;
-        }
+            var students = await _repository.GetAllStudents();
 
-        public Student Add(StudentDto dto)
-        {
-            var student = new Student
+            return students.Select(stud => new StudentDto
             {
-                Id = _store.Students.Count + 1,
-                Name = dto.Name,
-                Age = dto.Age,
-                Email = dto.Email
+                Id = stud.Id,
+                Name = stud.Name,
+                Email = stud.Email,
+                Age = stud.Age,
+                PhoneNumber = stud.PhoneNumber,          // added
+                CreatedDate = stud.CreatedDate           //FIXED
+            });
+        }
+
+        public async Task<StudentDto?> GetStudentById(int id)
+        {
+            var stud = await _repository.GetStudentById(id);
+
+            if (stud == null)
+                return null;
+
+            return new StudentDto
+            {
+                Id = stud.Id,
+                Name = stud.Name,
+                Email = stud.Email,
+                Age = stud.Age,
+                PhoneNumber = stud.PhoneNumber,          // added
+                CreatedDate = stud.CreatedDate           // FIXED
+            };
+        }
+
+        public async Task<StudentDto> CreateStudent(CreateStudentDTO student)
+        {
+            var stud = new Student()
+            {
+                Name = student.Name,
+                Age = student.Age,
+                Email = student.Email,
+                PhoneNumber = student.PhoneNumber,       //  added
+                CreatedDate = DateTime.UtcNow            //  correct place
             };
 
-            _store.Students.Add(student);
-            return student;
+            stud = await _repository.CreateStudent(stud);
+
+            return new StudentDto
+            {
+                Id = stud.Id,
+                Name = stud.Name,
+                Email = stud.Email,
+                Age = stud.Age,
+                PhoneNumber = stud.PhoneNumber,
+                CreatedDate = stud.CreatedDate
+            };
         }
 
-        public bool Delete(int id)
+        public async Task<StudentDto?> UpdateStudent(int id, UpdateStudentDto student)
         {
-            var student = _store.Students.FirstOrDefault(s => s.Id == id);
-            if (student == null) return false;
+            var existing = await _repository.GetStudentById(id);
 
-            _store.Students.Remove(student);
-            return true;
+            if (existing == null)
+                return null;
+
+            //  Update logic moved to service
+            existing.Name = student.Name;
+            existing.Email = student.Email;
+            existing.Age = student.Age;
+            existing.PhoneNumber = student.PhoneNumber;
+
+            //  DO NOT touch CreatedDate
+
+            await _repository.SaveChangesAsync();
+
+            return new StudentDto
+            {
+                Id = existing.Id,
+                Name = existing.Name,
+                Email = existing.Email,
+                Age = existing.Age,
+                PhoneNumber = existing.PhoneNumber,
+                CreatedDate = existing.CreatedDate
+            };
+        }
+
+        public async Task<bool> DeleteStudent(int id)
+        {
+            var existing= await _repository.GetStudentById(id); // fixed
+
+            if (existing == null)
+                return false;
+
+            return await _repository.DeleteStudent(id);
         }
     }
 }
