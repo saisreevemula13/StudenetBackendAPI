@@ -13,5 +13,7 @@ namespace StudentWebAPI.Repository
         Task<bool> DeleteStudent(int id);
 
         Task<bool> SaveChangesAsync();
+        Task<bool> ExistsByEmailAsync(string email);
+        Task<bool> ExistsByPhoneAsync(string phone);
     }
 }

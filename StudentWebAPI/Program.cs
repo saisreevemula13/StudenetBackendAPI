@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using StudentWebAPI.Data;
+using StudentWebAPI.Middlewares;
 using StudentWebAPI.Repository;
 using StudentWebAPI.Service;
+using StudentWebAPI.Validators.Student;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +19,9 @@ builder.Services.AddScoped<IEventService,EventServicecs>();
 builder.Services.AddScoped<IRegistrationRepository,RegisterRepository>();
 builder.Services.AddScoped<IRegistrationService,RegistrationService>();
 builder.Services.AddSingleton<InMemoryStudentStore>();
-builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+app.UseMiddleware<ExceptionMiddleware>();
+builder.Services.AddValidatorsFromAssemblyContaining<StudentCreateValidator>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

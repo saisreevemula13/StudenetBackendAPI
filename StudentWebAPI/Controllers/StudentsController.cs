@@ -40,16 +40,9 @@ namespace StudentWebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateStudent([FromBody] CreateStudentDTO dto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var result=await _studentService.CreateStudent(dto);
 
-            var createdStudent = await _studentService.CreateStudent(dto);
-
-            return CreatedAtAction(
-                nameof(GetStudentById),
-                new { id = createdStudent.Id },
-                createdStudent
-            );
+            return Ok(result);
         }
 
         // PUT: api/students/5

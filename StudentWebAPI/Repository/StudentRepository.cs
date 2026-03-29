@@ -45,5 +45,15 @@ namespace StudentWebAPI.Repository
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<bool> ExistsByEmailAsync(string email)
+        {
+            return await _context.Students.AnyAsync(x => x.Email == email);
+        }
+
+        public Task<bool> ExistsByPhoneAsync(string phone)
+        {
+            return _context.Students.AnyAsync(x=>x.PhoneNumber == phone);
+        }
     }
 }

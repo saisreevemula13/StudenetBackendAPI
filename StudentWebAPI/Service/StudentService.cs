@@ -1,4 +1,6 @@
-﻿using StudentWebAPI.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentWebAPI.DTO;
+using StudentWebAPI.Exceptions;
 using StudentWebAPI.Model;
 using StudentWebAPI.Repository;
 
@@ -46,18 +48,31 @@ namespace StudentWebAPI.Service
             };
         }
 
-        public async Task<StudentDto> CreateStudent(CreateStudentDTO student)
+        public async Task<StudentDto> CreateStudent(CreateStudentDTO dto)
         {
-            var stud = new Student()
-            {
-                Name = student.Name,
-                Age = student.Age,
-                Email = student.Email,
-                PhoneNumber = student.PhoneNumber,       //  added
-                CreatedDate = DateTime.UtcNow            //  correct place
-            };
+            if (await _repository.ExistsByEmailAsync(dto.Email))
+                throw new BadRequestException("Email already exists");
 
-            stud = await _repository.CreateStudent(stud);
+            if (await _repository.ExistsByPhoneAsync(dto.PhoneNumber))
+                throw new BadRequestException("Phone number already exists");
+
+
+        var stud = new Student()
+        {
+            Name = dto.Name,
+            Age = dto.Age,
+            Email = dto.Email,
+            PhoneNumber = dto.PhoneNumber,       //  added
+            CreatedDate = DateTime.UtcNow            //  correct place
+        };
+            try
+            {
+                stud = await _repository.CreateStudent(stud);
+            }
+            catch (DbUpdateException)
+            {
+                throw new BadRequestException("Duplicate data detected");
+            }
 
             return new StudentDto
             {
@@ -69,7 +84,6 @@ namespace StudentWebAPI.Service
                 CreatedDate = stud.CreatedDate
             };
         }
-
         public async Task<StudentDto?> UpdateStudent(int id, UpdateStudentDto student)
         {
             var existing = await _repository.GetStudentById(id);
