@@ -92,10 +92,10 @@ namespace StudentWebAPI.Service
                 return null;
 
             //  Update logic moved to service
-            existing.Name = student.Name;
-            existing.Email = student.Email;
-            existing.Age = student.Age;
-            existing.PhoneNumber = student.PhoneNumber;
+            existing.Name = student.Name?? existing.Name;
+            existing.Email = student.Email?? existing.Email;
+            existing.Age = student.Age?? existing.Age;
+            existing.PhoneNumber = student.PhoneNumber?? existing.PhoneNumber;
 
             //  DO NOT touch CreatedDate
 

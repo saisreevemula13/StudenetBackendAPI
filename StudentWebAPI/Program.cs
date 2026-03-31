@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using StudentWebAPI.Data;
 using StudentWebAPI.Middlewares;
@@ -20,13 +22,19 @@ builder.Services.AddScoped<IRegistrationRepository,RegisterRepository>();
 builder.Services.AddScoped<IRegistrationService,RegistrationService>();
 builder.Services.AddSingleton<InMemoryStudentStore>();
 builder.Services.AddScoped<IStudentService, StudentService>();
-app.UseMiddleware<ExceptionMiddleware>();
-builder.Services.AddValidatorsFromAssemblyContaining<StudentCreateValidator>();
+
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddFluentValidationAutoValidation(options=>
+    {
+    options.DisableDataAnnotationsValidation = true;
+    });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
