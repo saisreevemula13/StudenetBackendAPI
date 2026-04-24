@@ -4,7 +4,8 @@ namespace StudentWebAPI.Repository
 {
     public interface IStudentRepository
     {
-        Task<IEnumerable<Student>> GetAllStudents();
+        Task<List<Student>> GetAllStudents(string? filterOn=null, string? filterQuery=null,
+            string? sortBy=null, bool isAscending = true, int PageNumber = 1, int PageSize = 1000);
 
         Task<Student?> GetStudentById(int id);
 

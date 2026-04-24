@@ -46,7 +46,8 @@ namespace StudentWebAPI.Middlewares
                 message = statusCode == StatusCodes.Status500InternalServerError
                             ? "An unexpected error occurred"
                             : ex.Message,
-                traceId = context.TraceIdentifier
+                traceId = context.TraceIdentifier,
+                coorelationId = context.Items["CorrelationId"]?.ToString()
             };
 
             // 🔥 Step 3: Convert to JSON

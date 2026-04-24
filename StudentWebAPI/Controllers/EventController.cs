@@ -24,15 +24,12 @@ namespace StudentWebAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEventById(int id)
+        public async Task<IActionResult> GetEventById([FromRoute] int id)
         {
             if (id <= 0)
                 return BadRequest();
 
             var eventss = await _eventService.GetEventByIdAsync(id);
-
-            if (eventss == null)
-                return NotFound();
 
             return Ok(eventss);
         }
@@ -47,31 +44,25 @@ namespace StudentWebAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEvent(int id, UpdateEventDTO eventDTO)
+        public async Task<IActionResult> UpdateEvent([FromRoute] int id,[FromBody] UpdateEventDTO eventDTO)
         {
             if (id <= 0 || eventDTO == null)
                 return BadRequest();
 
             var eventss = await _eventService.UpdateEventAsync(id, eventDTO);
 
-            if (eventss == null)
-                return NotFound();
-
             return Ok(eventss);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEvent(int id)
+        public async Task<IActionResult> DeleteEvent([FromRoute] int id)
         {
             if (id <= 0)
                 return BadRequest();
 
-            var eventts = await _eventService.DeleteEventAsync(id);
+           await _eventService.DeleteEventAsync(id);
 
-            if (!eventts)
-                return NotFound();
-
-            return NoContent();
+           return NoContent();
         }
     }
 }

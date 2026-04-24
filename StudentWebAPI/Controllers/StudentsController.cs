@@ -18,21 +18,18 @@ namespace StudentWebAPI.Controllers
 
         // GET: api/students
         [HttpGet]
-        public async Task<IActionResult> GetStudents()
+        public async Task<IActionResult> GetStudents([FromQuery] string? FilterOn, [FromQuery] string? FilterQuery, 
+            [FromQuery] string? sortBy, [FromQuery] bool? isAscending, [FromQuery] int PageNumber=1, [FromQuery] int PageSize=1000)
         {
-            var students = await _studentService.GetAllStudents();
+            var students = await _studentService.GetAllStudents(FilterOn, FilterQuery, sortBy, isAscending ?? true,PageNumber, PageSize);
             return Ok(students);
         }
 
         // GET: api/students/5
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetStudentById(int id)
+        public async Task<IActionResult> GetStudentById([FromRoute] int id)
         {
             var student = await _studentService.GetStudentById(id);
-
-            if (student == null)
-                return NotFound($"Student with Id {id} not found");
-
             return Ok(student);
         }
 
@@ -47,7 +44,7 @@ namespace StudentWebAPI.Controllers
 
         // PUT: api/students/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStudent(int id, [FromBody] UpdateStudentDto dto)
+        public async Task<IActionResult> UpdateStudent([FromRoute] int id, [FromBody] UpdateStudentDto dto)
         {
             if(id<=0) return BadRequest();
 
@@ -64,7 +61,7 @@ namespace StudentWebAPI.Controllers
 
         // DELETE: api/students/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStudent(int id)
+        public async Task<IActionResult> DeleteStudent([FromRoute] int id)
         {
             if (id <= 0) return BadRequest();
 

@@ -18,62 +18,51 @@ namespace StudentWebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] string? FilterOn, [FromQuery] string? FilterQuery,
+            [FromQuery] string? sortBy, [FromQuery] bool? isAscending, [FromQuery] int  PageNumber= 1, [FromQuery] int PageSize=3)
         {
-            var data = await _services.GetAllRegistrationAsync();
+            var data = await _services.GetAllRegistrationAsync(FilterOn,FilterQuery,sortBy, isAscending ?? true,PageNumber,PageSize);
             return Ok(data);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetRegistrationsById(int id)
         {
             if (id <= 0)
             {
-                return BadRequest();
+                return BadRequest("Invalid Id");
             }
 
-            var registrations = _services.GetRegistrationByIdAsync(id);
-
-            if(registrations == null) 
-                return NotFound();
+            var registrations = await _services.GetRegistrationByIdAsync(id);
 
             return Ok(registrations);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateRegistration(RegistrationCreateDTO registration)
+        public async Task<IActionResult> CreateRegistration([FromBody] RegistrationCreateDTO registration)
         {
             var result = await _services.CreateRegistrationAsync(registration);
-
-            if (result == null)
-                return BadRequest("Already registered");
 
             return CreatedAtAction(nameof(GetRegistrationsById), new { id = result.Id }, result);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRegistration(int id, RegistrationUpdateDTO register)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateRegistration([FromRoute] int id,[FromBody] RegistrationUpdateDTO register)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) return BadRequest("Invalid Id");
 
             var result= await _services.UpdateRegistrationAsync(id, register);
-            
-            if (result==null)
-                return NotFound();
 
             return Ok(result);
         }
 
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRegistration(int id)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteRegistration([FromBody] int id)
         {
-            if(id<=0) return BadRequest();
+            if(id<=0) return BadRequest("Invalid Id");
             
-            var result=await _services.DeleteRegistrationAsync(id);
-
-            if (!result)
-                return NotFound();
+            await _services.DeleteRegistrationAsync(id);
 
             return NoContent();
         }

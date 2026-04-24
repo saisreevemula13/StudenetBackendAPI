@@ -1,0 +1,1017 @@
+[2026-04-05 11:57:44 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-04-05 11:57:44 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-04-05 11:57:44 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-04-05 11:57:44 INF] [CorrId: ] Hosting environment: Development
+[2026-04-05 11:57:44 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI
+[2026-04-05 11:57:44 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+[2026-04-05 11:57:45 INF] [CorrId: 055e053c-c553-464e-9f61-27b4c605f4ee] HTTP GET /swagger/index.html responded 200 in 169.1998 ms
+[2026-04-05 11:57:45 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+[2026-04-05 11:57:45 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+[2026-04-05 11:57:45 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 543.0274ms
+[2026-04-05 11:57:45 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 55.4127ms
+[2026-04-05 11:57:45 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 130.8284ms
+[2026-04-05 11:57:45 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+[2026-04-05 11:57:45 INF] [CorrId: 2f6558a3-ea6d-49af-8991-dc8ca5531124] HTTP GET /swagger/v1/swagger.json responded 200 in 16.7616 ms
+[2026-04-05 11:57:45 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.3721ms
+[2026-04-05 11:59:26 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Registration - null null
+[2026-04-05 11:59:26 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.GetAll (StudentWebAPI)'
+[2026-04-05 11:59:26 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Route matched with {action = "GetAll", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 11:59:27 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Fetching all registrations
+[2026-04-05 11:59:28 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+[2026-04-05 11:59:28 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] fetched 13 registrations
+[2026-04-05 11:59:28 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.RegistrationResponseDTO, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-04-05 11:59:29 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Executed action StudentWebAPI.Controllers.RegistrationController.GetAll (StudentWebAPI) in 2364.9039ms
+[2026-04-05 11:59:29 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.GetAll (StudentWebAPI)'
+[2026-04-05 11:59:29 INF] [CorrId: 672a4836-1b5f-4f5c-93f9-0edd6eb7b1fd] HTTP GET /api/Registration responded 200 in 2424.2258 ms
+[2026-04-05 11:59:29 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Registration - 200 null application/json; charset=utf-8 2474.7989ms
+[2026-04-05 11:59:46 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Registration/1 - application/json 37
+[2026-04-05 11:59:46 INF] [CorrId: a4244b13-72aa-4324-9082-5a6dd9225538] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 11:59:46 INF] [CorrId: a4244b13-72aa-4324-9082-5a6dd9225538] Route matched with {action = "UpdateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRegistration(Int32, StudentWebAPI.DTO.RegistrationUpdateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 11:59:46 INF] [CorrId: a4244b13-72aa-4324-9082-5a6dd9225538] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-04-05 11:59:46 INF] [CorrId: a4244b13-72aa-4324-9082-5a6dd9225538] Executed action StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI) in 136.6162ms
+[2026-04-05 11:59:46 INF] [CorrId: a4244b13-72aa-4324-9082-5a6dd9225538] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 11:59:46 INF] [CorrId: a4244b13-72aa-4324-9082-5a6dd9225538] HTTP PUT /api/Registration/1 responded 400 in 178.9133 ms
+[2026-04-05 11:59:46 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Registration/1 - 400 null application/problem+json; charset=utf-8 192.4062ms
+[2026-04-05 12:03:56 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Registration/1 - application/json 37
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Route matched with {action = "UpdateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRegistration(Int32, StudentWebAPI.DTO.RegistrationUpdateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Updating registration Id: 1
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executed DbCommand (39ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executed DbCommand (5ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executed DbCommand (5ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executed action StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI) in 277.9418ms
+[2026-04-05 12:03:56 INF] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 12:03:56 ERR] [CorrId: 0871bc4d-2599-4c9c-ab4e-7674c035cbef] HTTP PUT /api/Registration/1 responded 500 in 297.1529 ms
+StudentWebAPI.Exceptions.BadRequestException: Event capacity full
+   at StudentWebAPI.Service.RegistrationService.UpdateRegistrationAsync(Int32 id, RegistrationUpdateDTO registration) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Service\RegistrationService.cs:line 156
+   at StudentWebAPI.Controllers.RegistrationController.UpdateRegistration(Int32 id, RegistrationUpdateDTO register) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Controllers\RegistrationController.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-04-05 12:03:56 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Registration/1 - 400 null application/json 393.2779ms
+[2026-04-05 12:04:03 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Registration/1 - application/json 37
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Route matched with {action = "UpdateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRegistration(Int32, StudentWebAPI.DTO.RegistrationUpdateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Updating registration Id: 1
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executed DbCommand (3ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executed action StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI) in 131.7403ms
+[2026-04-05 12:04:03 INF] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 12:04:03 ERR] [CorrId: eaefb0b4-7617-41b6-a9f3-548020d4e4aa] HTTP PUT /api/Registration/1 responded 500 in 148.1093 ms
+StudentWebAPI.Exceptions.BadRequestException: Event capacity full
+   at StudentWebAPI.Service.RegistrationService.UpdateRegistrationAsync(Int32 id, RegistrationUpdateDTO registration) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Service\RegistrationService.cs:line 156
+   at StudentWebAPI.Controllers.RegistrationController.UpdateRegistration(Int32 id, RegistrationUpdateDTO register) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Controllers\RegistrationController.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-04-05 12:04:03 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Registration/1 - 400 null application/json 161.697ms
+[2026-04-05 12:04:09 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Registration/1 - application/json 37
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Route matched with {action = "UpdateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateRegistration(Int32, StudentWebAPI.DTO.RegistrationUpdateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Updating registration Id: 1
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executed DbCommand (19ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executed DbCommand (5ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executed DbCommand (3ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executed action StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI) in 113.066ms
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.UpdateRegistration (StudentWebAPI)'
+[2026-04-05 12:04:09 INF] [CorrId: 994800a2-7a45-411c-9c60-74ddc6de8221] HTTP PUT /api/Registration/1 responded 200 in 125.0841 ms
+[2026-04-05 12:04:09 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Registration/1 - 200 null application/json; charset=utf-8 137.2605ms
+[2026-04-05 13:13:33 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-04-05 13:13:33 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-04-05 13:13:33 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-04-05 13:13:33 INF] [CorrId: ] Hosting environment: Development
+[2026-04-05 13:13:33 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI
+[2026-04-05 13:13:33 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+[2026-04-05 13:13:33 INF] [CorrId: 1f4a6968-87ee-4653-a4f7-2fe13f52f42a] HTTP GET /swagger/index.html responded 200 in 38.9737 ms
+[2026-04-05 13:13:33 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+[2026-04-05 13:13:33 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+[2026-04-05 13:13:33 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 171.2519ms
+[2026-04-05 13:13:33 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 26.2522ms
+[2026-04-05 13:13:33 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.4251ms
+[2026-04-05 13:13:33 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+[2026-04-05 13:13:33 INF] [CorrId: 20fead25-644b-4f04-9943-46e0a135c8fe] HTTP GET /swagger/v1/swagger.json responded 200 in 5.1760 ms
+[2026-04-05 13:13:33 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.1688ms
+[2026-04-05 13:13:46 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Event - null null
+[2026-04-05 13:13:46 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Executing endpoint 'StudentWebAPI.Controllers.EventController.GetAllEventDetails (StudentWebAPI)'
+[2026-04-05 13:13:46 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Route matched with {action = "GetAllEventDetails", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllEventDetails() on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:13:46 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Fetching all Events
+[2026-04-05 13:13:47 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+[2026-04-05 13:13:47 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.EventResponseDTO, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-04-05 13:13:47 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Executed action StudentWebAPI.Controllers.EventController.GetAllEventDetails (StudentWebAPI) in 1653.773ms
+[2026-04-05 13:13:47 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] Executed endpoint 'StudentWebAPI.Controllers.EventController.GetAllEventDetails (StudentWebAPI)'
+[2026-04-05 13:13:47 INF] [CorrId: 2007943a-e4f5-4ffc-a067-9eb32c588de4] HTTP GET /api/Event responded 200 in 1722.8247 ms
+[2026-04-05 13:13:47 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Event - 200 null application/json; charset=utf-8 1761.3827ms
+[2026-04-05 13:15:31 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Event - application/json 166
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] Executing endpoint 'StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI)'
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] Route matched with {action = "CreateEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateEvent(StudentWebAPI.DTO.CreateEventDTO) on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] The event is getting created
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Events] ([Capacity], [CreatedDate], [Description], [EventDate], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] New event is been created
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.EventResponseDTO'.
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] Executed action StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI) in 419.0323ms
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] Executed endpoint 'StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI)'
+[2026-04-05 13:15:31 INF] [CorrId: 17a68d45-bb18-4cb3-bf4b-74aa504db18b] HTTP POST /api/Event responded 201 in 451.9585 ms
+[2026-04-05 13:15:31 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Event - 201 null application/json; charset=utf-8 466.1295ms
+[2026-04-05 13:16:24 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Event - application/json 144
+[2026-04-05 13:16:24 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] Executing endpoint 'StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI)'
+[2026-04-05 13:16:24 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] Route matched with {action = "CreateEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateEvent(StudentWebAPI.DTO.CreateEventDTO) on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:16:24 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] The event is getting created
+[2026-04-05 13:16:25 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Events] ([Capacity], [CreatedDate], [Description], [EventDate], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:16:25 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] New event is been created
+[2026-04-05 13:16:25 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.EventResponseDTO'.
+[2026-04-05 13:16:25 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] Executed action StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI) in 112.1166ms
+[2026-04-05 13:16:25 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] Executed endpoint 'StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI)'
+[2026-04-05 13:16:25 INF] [CorrId: deccf89a-9c73-4991-8f5b-43166adeb545] HTTP POST /api/Event responded 201 in 122.4719 ms
+[2026-04-05 13:16:25 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Event - 201 null application/json; charset=utf-8 133.5867ms
+[2026-04-05 13:16:53 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Event/6 - application/json 125
+[2026-04-05 13:16:53 INF] [CorrId: 66d534ad-f53d-4b73-b6c3-2e2d1b8f2ce9] Executing endpoint 'StudentWebAPI.Controllers.EventController.UpdateEvent (StudentWebAPI)'
+[2026-04-05 13:16:53 INF] [CorrId: 66d534ad-f53d-4b73-b6c3-2e2d1b8f2ce9] Route matched with {action = "UpdateEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateEvent(Int32, StudentWebAPI.DTO.UpdateEventDTO) on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:16:53 INF] [CorrId: 66d534ad-f53d-4b73-b6c3-2e2d1b8f2ce9] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-04-05 13:16:53 INF] [CorrId: 66d534ad-f53d-4b73-b6c3-2e2d1b8f2ce9] Executed action StudentWebAPI.Controllers.EventController.UpdateEvent (StudentWebAPI) in 85.7428ms
+[2026-04-05 13:16:53 INF] [CorrId: 66d534ad-f53d-4b73-b6c3-2e2d1b8f2ce9] Executed endpoint 'StudentWebAPI.Controllers.EventController.UpdateEvent (StudentWebAPI)'
+[2026-04-05 13:16:53 INF] [CorrId: 66d534ad-f53d-4b73-b6c3-2e2d1b8f2ce9] HTTP PUT /api/Event/6 responded 400 in 113.2033 ms
+[2026-04-05 13:16:53 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Event/6 - 400 null application/problem+json; charset=utf-8 120.2102ms
+[2026-04-05 13:19:06 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Event/6 - application/json 144
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Executing endpoint 'StudentWebAPI.Controllers.EventController.UpdateEvent (StudentWebAPI)'
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Route matched with {action = "UpdateEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateEvent(Int32, StudentWebAPI.DTO.UpdateEventDTO) on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] updating event id: 6
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Executed DbCommand (6ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Events] SET [Capacity] = @p0, [EventDate] = @p1, [Title] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Updated event with id:6 6
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.EventResponseDTO'.
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Executed action StudentWebAPI.Controllers.EventController.UpdateEvent (StudentWebAPI) in 161.3103ms
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] Executed endpoint 'StudentWebAPI.Controllers.EventController.UpdateEvent (StudentWebAPI)'
+[2026-04-05 13:19:06 INF] [CorrId: d2972557-7a25-479c-8252-2c7c60fae220] HTTP PUT /api/Event/6 responded 200 in 173.5303 ms
+[2026-04-05 13:19:06 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Event/6 - 200 null application/json; charset=utf-8 186.1008ms
+[2026-04-05 13:19:13 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Event - null null
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Executing endpoint 'StudentWebAPI.Controllers.EventController.GetAllEventDetails (StudentWebAPI)'
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Route matched with {action = "GetAllEventDetails", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllEventDetails() on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Fetching all Events
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.EventResponseDTO, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Executed action StudentWebAPI.Controllers.EventController.GetAllEventDetails (StudentWebAPI) in 7.2055ms
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] Executed endpoint 'StudentWebAPI.Controllers.EventController.GetAllEventDetails (StudentWebAPI)'
+[2026-04-05 13:19:13 INF] [CorrId: 4c6ca260-466a-4594-a09e-4d93daaa03e9] HTTP GET /api/Event responded 200 in 12.9352 ms
+[2026-04-05 13:19:13 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Event - 200 null application/json; charset=utf-8 22.9939ms
+[2026-04-05 13:19:36 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students - null null
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents() on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 56.4484ms
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-04-05 13:19:36 INF] [CorrId: 2beef9a4-49bc-4b92-8f3e-80eb9d9da5a1] HTTP GET /api/Students responded 200 in 77.3335 ms
+[2026-04-05 13:19:36 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students - 200 null application/json; charset=utf-8 101.833ms
+[2026-04-05 13:20:01 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Registration - null null
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.GetAll (StudentWebAPI)'
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Route matched with {action = "GetAll", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Fetching all registrations
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] fetched 13 registrations
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.RegistrationResponseDTO, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Executed action StudentWebAPI.Controllers.RegistrationController.GetAll (StudentWebAPI) in 140.1954ms
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.GetAll (StudentWebAPI)'
+[2026-04-05 13:20:01 INF] [CorrId: 738ef217-35cc-4d20-b8e7-54b8df0d698a] HTTP GET /api/Registration responded 200 in 156.6257 ms
+[2026-04-05 13:20:01 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Registration - 200 null application/json; charset=utf-8 163.578ms
+[2026-04-05 13:20:31 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 37
+[2026-04-05 13:20:31 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:31 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:20:31 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] registration request started for StudentId : 11, EventId :6
+[2026-04-05 13:20:31 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed DbCommand (7ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed DbCommand (4ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Saving registration to database
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Registration created successfully with Id: 14
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 201.2781ms
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:32 INF] [CorrId: e28db96b-5df6-4bfd-b674-9c1861baeec6] HTTP POST /api/Registration responded 201 in 222.0341 ms
+[2026-04-05 13:20:32 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 246.7569ms
+[2026-04-05 13:20:37 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 37
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] registration request started for StudentId : 12, EventId :6
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed DbCommand (1ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Saving registration to database
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Registration created successfully with Id: 15
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 73.8769ms
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:37 INF] [CorrId: 0108a49f-b716-4c8d-a74d-5542c2cbcd02] HTTP POST /api/Registration responded 201 in 87.3469 ms
+[2026-04-05 13:20:37 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 95.7697ms
+[2026-04-05 13:20:43 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 36
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] registration request started for StudentId : 9, EventId :6
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed DbCommand (1ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed DbCommand (0ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Saving registration to database
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Registration created successfully with Id: 16
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 38.0795ms
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:43 INF] [CorrId: f191d607-b3ec-4450-9a94-2cccc4192890] HTTP POST /api/Registration responded 201 in 44.9737 ms
+[2026-04-05 13:20:43 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 52.4004ms
+[2026-04-05 13:20:46 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 36
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] registration request started for StudentId : 9, EventId :6
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Executed DbCommand (1ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:20:46 WRN] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Duplicate registration attempt for attempt for StudentId: 9, EventId:6
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 24.7238ms
+[2026-04-05 13:20:46 INF] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:46 ERR] [CorrId: 4c3a28c8-500f-4028-abe8-c6a0239cfcea] HTTP POST /api/Registration responded 500 in 34.1722 ms
+StudentWebAPI.Exceptions.BadRequestException: Student already registered for this event
+   at StudentWebAPI.Service.RegistrationService.CreateRegistrationAsync(RegistrationCreateDTO dto) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Service\RegistrationService.cs:line 88
+   at StudentWebAPI.Controllers.RegistrationController.CreateRegistration(RegistrationCreateDTO registration) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Controllers\RegistrationController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-04-05 13:20:46 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 400 null application/json 116.6514ms
+[2026-04-05 13:20:54 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 37
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] registration request started for StudentId : 90, EventId :6
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executed DbCommand (1ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executed DbCommand (0ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Saving registration to database
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:20:54 ERR] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] An exception occurred in the database while saving changes for context type 'StudentWebAPI.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Students_StudentId". The conflict occurred in database "StudentsDB", table "dbo.Students", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:08dcf67e-43ce-4741-88c8-7d5cd8f30139
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Students_StudentId". The conflict occurred in database "StudentsDB", table "dbo.Students", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:08dcf67e-43ce-4741-88c8-7d5cd8f30139
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 72.5461ms
+[2026-04-05 13:20:54 INF] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:20:54 ERR] [CorrId: 7a1edfb9-01b0-45db-87fe-ff5548c94361] HTTP POST /api/Registration responded 500 in 82.2559 ms
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Registrations_Students_StudentId". The conflict occurred in database "StudentsDB", table "dbo.Students", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:08dcf67e-43ce-4741-88c8-7d5cd8f30139
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at StudentWebAPI.Repository.RegisterRepository.CreateRegistrationsAsync(Registration registration) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Repository\RegisterRepository.cs:line 19
+   at StudentWebAPI.Service.RegistrationService.CreateRegistrationAsync(RegistrationCreateDTO dto) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Service\RegistrationService.cs:line 106
+   at StudentWebAPI.Controllers.RegistrationController.CreateRegistration(RegistrationCreateDTO registration) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Controllers\RegistrationController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-04-05 13:20:54 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 500 null application/json 104.4956ms
+[2026-04-05 13:37:33 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Students/12 - application/json 106
+[2026-04-05 13:37:33 INF] [CorrId: 192b3f26-6247-451d-b521-e51336a68f3b] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-04-05 13:37:33 INF] [CorrId: 192b3f26-6247-451d-b521-e51336a68f3b] Route matched with {action = "UpdateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStudent(Int32, StudentWebAPI.DTO.UpdateStudentDto) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:37:33 INF] [CorrId: 192b3f26-6247-451d-b521-e51336a68f3b] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-04-05 13:37:33 INF] [CorrId: 192b3f26-6247-451d-b521-e51336a68f3b] Executed action StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI) in 39.6007ms
+[2026-04-05 13:37:33 INF] [CorrId: 192b3f26-6247-451d-b521-e51336a68f3b] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-04-05 13:37:33 INF] [CorrId: 192b3f26-6247-451d-b521-e51336a68f3b] HTTP PUT /api/Students/12 responded 400 in 60.1532 ms
+[2026-04-05 13:37:33 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Students/12 - 400 null application/problem+json; charset=utf-8 68.4036ms
+[2026-04-05 13:37:44 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Students/12 - application/json 106
+[2026-04-05 13:37:44 INF] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-04-05 13:37:44 INF] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] Route matched with {action = "UpdateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStudent(Int32, StudentWebAPI.DTO.UpdateStudentDto) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:37:44 INF] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-04-05 13:37:44 INF] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] Executed DbCommand (19ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 450), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Students] SET [Age] = @p0, [Email] = @p1, [Name] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+[2026-04-05 13:37:44 ERR] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] An exception occurred in the database while saving changes for context type 'StudentWebAPI.Data.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Students' with unique index 'IX_Students_Email'. The duplicate key value is (vysh123@example.com).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:24ff466d-7637-460e-8ac8-954a380fdd16
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Students' with unique index 'IX_Students_Email'. The duplicate key value is (vysh123@example.com).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:24ff466d-7637-460e-8ac8-954a380fdd16
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-04-05 13:37:44 INF] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] Executed action StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI) in 82.1093ms
+[2026-04-05 13:37:44 INF] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-04-05 13:37:44 ERR] [CorrId: ef5e46ed-86c1-4827-8c45-4e64641242fc] HTTP PUT /api/Students/12 responded 500 in 92.0259 ms
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Students' with unique index 'IX_Students_Email'. The duplicate key value is (vysh123@example.com).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:24ff466d-7637-460e-8ac8-954a380fdd16
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at StudentWebAPI.Repository.StudentRepository.SaveChangesAsync() in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Repository\StudentRepository.cs:line 46
+   at StudentWebAPI.Service.StudentService.UpdateStudent(Int32 id, UpdateStudentDto student) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Service\StudentService.cs:line 121
+   at StudentWebAPI.Controllers.StudentsController.UpdateStudent(Int32 id, UpdateStudentDto dto) in C:\Users\saisr\source\repos\StudentWebAPI\StudentWebAPI\Controllers\StudentsController.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-04-05 13:37:44 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Students/12 - 500 null application/json 124.416ms
+[2026-04-05 13:37:58 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Students/12 - application/json 105
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Route matched with {action = "UpdateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStudent(Int32, StudentWebAPI.DTO.UpdateStudentDto) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Executed DbCommand (4ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 450), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Students] SET [Age] = @p0, [Email] = @p1, [Name] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Executed action StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI) in 30.8636ms
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-04-05 13:37:58 INF] [CorrId: 7f4a183f-f65e-4c4e-8aaa-f4f991cbae49] HTTP PUT /api/Students/12 responded 200 in 45.0129 ms
+[2026-04-05 13:37:58 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Students/12 - 200 null application/json; charset=utf-8 73.9275ms
+[2026-04-05 13:41:49 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Students - application/json 119
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Route matched with {action = "CreateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateStudent(StudentWebAPI.DTO.CreateStudentDTO) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] creating student with Email rahul.verma@example.com
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executed DbCommand (7ms) [Parameters=[@__email_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[Email] = @__email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executed DbCommand (4ms) [Parameters=[@__phone_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[PhoneNumber] = @__phone_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Students] ([Age], [CreatedDate], [Email], [Name], [PhoneNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Student created successfully with Id 13
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executed action StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI) in 153.0931ms
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:41:49 INF] [CorrId: 1880fb90-7311-4119-865c-14f95f0825e6] HTTP POST /api/Students responded 200 in 219.3012 ms
+[2026-04-05 13:41:49 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Students - 200 null application/json; charset=utf-8 244.464ms
+[2026-04-05 13:42:01 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Students - application/json 120
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Route matched with {action = "CreateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateStudent(StudentWebAPI.DTO.CreateStudentDTO) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] creating student with Email sneha.reddy@example.com
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[Email] = @__email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executed DbCommand (1ms) [Parameters=[@__phone_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[PhoneNumber] = @__phone_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Students] ([Age], [CreatedDate], [Email], [Name], [PhoneNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Student created successfully with Id 14
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executed action StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI) in 31.9419ms
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:42:01 INF] [CorrId: 1c984a15-ed92-4f28-9e2a-970ad9ad694d] HTTP POST /api/Students responded 200 in 43.8281 ms
+[2026-04-05 13:42:01 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Students - 200 null application/json; charset=utf-8 50.3687ms
+[2026-04-05 13:42:11 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Students - application/json 126
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Route matched with {action = "CreateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateStudent(StudentWebAPI.DTO.CreateStudentDTO) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] creating student with Email karthik.sharma@example.com
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[Email] = @__email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executed DbCommand (1ms) [Parameters=[@__phone_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[PhoneNumber] = @__phone_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Students] ([Age], [CreatedDate], [Email], [Name], [PhoneNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Student created successfully with Id 15
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executed action StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI) in 37.9873ms
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:42:11 INF] [CorrId: 9910b45d-d683-4c0e-a186-a236c4567657] HTTP POST /api/Students responded 200 in 48.9372 ms
+[2026-04-05 13:42:11 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Students - 200 null application/json; charset=utf-8 57.2103ms
+[2026-04-05 13:42:24 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Students - application/json 119
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Route matched with {action = "CreateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateStudent(StudentWebAPI.DTO.CreateStudentDTO) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] creating student with Email meghana.rao@example.com
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executed DbCommand (1ms) [Parameters=[@__email_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[Email] = @__email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executed DbCommand (1ms) [Parameters=[@__phone_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Students] AS [s]
+        WHERE [s].[PhoneNumber] = @__phone_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 450), @p3='?' (Size = 4000), @p4='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Students] ([Age], [CreatedDate], [Email], [Name], [PhoneNumber])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Student created successfully with Id 16
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executed action StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI) in 30.5319ms
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-04-05 13:42:24 INF] [CorrId: 71e88acf-9ba2-4b88-9819-768df87a1d5f] HTTP POST /api/Students responded 200 in 52.6525 ms
+[2026-04-05 13:42:24 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Students - 200 null application/json; charset=utf-8 69.3942ms
+[2026-04-05 13:42:49 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Event - application/json 157
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] Executing endpoint 'StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI)'
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] Route matched with {action = "CreateEvent", controller = "Event"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateEvent(StudentWebAPI.DTO.CreateEventDTO) on controller StudentWebAPI.Controllers.EventController (StudentWebAPI).
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] The event is getting created
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Events] ([Capacity], [CreatedDate], [Description], [EventDate], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] New event is been created
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.EventResponseDTO'.
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] Executed action StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI) in 12.0292ms
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] Executed endpoint 'StudentWebAPI.Controllers.EventController.CreateEvent (StudentWebAPI)'
+[2026-04-05 13:42:49 INF] [CorrId: 6f9da233-2bfa-47c9-a9fe-39d966529ecc] HTTP POST /api/Event responded 201 in 17.4546 ms
+[2026-04-05 13:42:49 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Event - 201 null application/json; charset=utf-8 23.5562ms
+[2026-04-05 13:43:09 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 43
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] registration request started for StudentId : 13, EventId :6
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed DbCommand (4ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed DbCommand (2ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Saving registration to database
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Registration created successfully with Id: 18
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 95.4512ms
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:09 INF] [CorrId: 0819f9cc-5d90-4f73-8f95-6ed342a50e9b] HTTP POST /api/Registration responded 201 in 107.0633 ms
+[2026-04-05 13:43:09 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 116.8557ms
+[2026-04-05 13:43:24 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 45
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] registration request started for StudentId : 14, EventId :6
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed DbCommand (3ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Saving registration to database
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Registration created successfully with Id: 19
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 63.3696ms
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:24 INF] [CorrId: ef6be832-c800-4e7f-9e5b-eafdd2e3aa2d] HTTP POST /api/Registration responded 201 in 74.5699 ms
+[2026-04-05 13:43:24 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 91.3426ms
+[2026-04-05 13:43:39 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 43
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] registration request started for StudentId : 15, EventId :6
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed DbCommand (1ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Saving registration to database
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Registration created successfully with Id: 20
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 43.8458ms
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:39 INF] [CorrId: 8c967477-6bd5-4c9a-b03e-a790d12d874d] HTTP POST /api/Registration responded 201 in 65.0096 ms
+[2026-04-05 13:43:39 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 72.8088ms
+[2026-04-05 13:43:52 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Registration - application/json 44
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executing endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Route matched with {action = "CreateRegistration", controller = "Registration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateRegistration(StudentWebAPI.DTO.RegistrationCreateDTO) on controller StudentWebAPI.Controllers.RegistrationController (StudentWebAPI).
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] registration request started for StudentId : 16, EventId :6
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed DbCommand (1ms) [Parameters=[@__studentId_0='?' (DbType = Int32), @__eventId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Registrations] AS [r]
+        WHERE [r].[StudentId] = @__studentId_0 AND [r].[EventId] = @__eventId_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed DbCommand (1ms) [Parameters=[@__eventId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Registrations] AS [r]
+WHERE [r].[EventId] = @__eventId_0
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Saving registration to database
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Registrations] ([EventId], [RegisteredOn], [StudentId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[EventId], [r].[RegisteredOn], [r].[StudentId], [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber], [e].[Id], [e].[Capacity], [e].[CreatedDate], [e].[Description], [e].[EventDate], [e].[Title]
+FROM [Registrations] AS [r]
+INNER JOIN [Students] AS [s] ON [r].[StudentId] = [s].[Id]
+INNER JOIN [Events] AS [e] ON [r].[EventId] = [e].[Id]
+WHERE [r].[Id] = @__id_0
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Registration created successfully with Id: 21
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executing CreatedAtActionResult, writing value of type 'StudentWebAPI.DTO.RegistrationResponseDTO'.
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed action StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI) in 57.8451ms
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] Executed endpoint 'StudentWebAPI.Controllers.RegistrationController.CreateRegistration (StudentWebAPI)'
+[2026-04-05 13:43:52 INF] [CorrId: 8ce01e30-d7b2-4573-8a21-3d2b2ef6e01d] HTTP POST /api/Registration responded 201 in 73.9275 ms
+[2026-04-05 13:43:52 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Registration - 201 null application/json; charset=utf-8 83.6307ms

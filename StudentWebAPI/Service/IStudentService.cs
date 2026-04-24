@@ -5,7 +5,8 @@ namespace StudentWebAPI.Service
 {
     public interface IStudentService
     {
-        Task<IEnumerable<StudentDto>> GetAllStudents();
+        Task<List<StudentDto>> GetAllStudents(string? filterOn=null, string? filterQuery=null,string? sortBy=null, bool isAscending=true
+            ,int PageNumber=1, int PageSize=1000);
         Task<StudentDto?> GetStudentById(int id);
         Task<StudentDto?> CreateStudent(CreateStudentDTO dto);
         Task<StudentDto?> UpdateStudent(int id, UpdateStudentDto student);

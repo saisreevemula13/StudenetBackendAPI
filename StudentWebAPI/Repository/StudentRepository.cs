@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using StudentWebAPI.Data;
 using StudentWebAPI.Model;
+using System.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace StudentWebAPI.Repository
 {
@@ -14,9 +16,40 @@ namespace StudentWebAPI.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Student>> GetAllStudents()
+        public async Task<List<Student>> GetAllStudents(string? filterOn=null, string? filterQuery=null,
+            string? sortBy=null, bool isAscending = true, int PageNumber = 1, int PageSize = 1000)
         {
-            return await _context.Students.ToListAsync();
+            //filtering used AsQuerable as in the DB side we do get data and the apply filter on it.
+            var studentList = _context.Students.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filterOn) && !string.IsNullOrWhiteSpace(filterQuery))
+            {
+                if (string.Equals(filterOn,"Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    studentList = studentList.Where(x => x.Name.Contains(filterQuery));
+                }
+
+                else if (string.Equals(filterOn,"Email", StringComparison.OrdinalIgnoreCase))
+                {
+                    studentList = studentList.Where(x => x.Email.Contains(filterQuery));
+                }
+            }
+            //sorting
+            if (!string.IsNullOrWhiteSpace(sortBy))
+            {
+                if (string.Equals(sortBy, "Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    studentList = isAscending ? studentList.OrderBy(x => x.Name):studentList.OrderByDescending(x => x.Name);    
+                }
+                else if (string.Equals(sortBy, "Age", StringComparison.OrdinalIgnoreCase))
+                {
+                    studentList = isAscending ? studentList.OrderBy(x => x.Age) : studentList.OrderByDescending(x => x.Age);
+                }
+            }
+
+            //Pagination
+            var skipResults = (PageNumber = 1) * PageSize;
+            return await studentList.Skip(skipResults).Take(PageSize).ToListAsync();
         }
 
         public async Task<Student?> GetStudentById(int id)
@@ -55,5 +88,7 @@ namespace StudentWebAPI.Repository
         {
             return _context.Students.AnyAsync(x=>x.PhoneNumber == phone);
         }
+
+        
     }
 }
