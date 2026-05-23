@@ -1,0 +1,201 @@
+[2026-05-17 11:50:46 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-05-17 11:50:46 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-05-17 11:50:46 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-05-17 11:50:46 INF] [CorrId: ] Hosting environment: Development
+[2026-05-17 11:50:46 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI
+[2026-05-17 11:50:47 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+[2026-05-17 11:50:48 INF] [CorrId: 871facd5-045b-46f6-80bc-e3dd207b4832] HTTP GET /swagger/index.html responded 200 in 107.2656 ms
+[2026-05-17 11:50:48 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 493.7441ms
+[2026-05-17 11:50:48 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-17 11:50:48 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+[2026-05-17 11:50:48 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 26.7981ms
+[2026-05-17 11:50:48 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 121.4319ms
+[2026-05-17 11:50:48 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+[2026-05-17 11:50:48 INF] [CorrId: c1ee3fde-000b-49b4-aded-aba35fed2e57] HTTP GET /swagger/v1/swagger.json responded 200 in 36.0669 ms
+[2026-05-17 11:50:48 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 69.2678ms
+[2026-05-17 11:53:01 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:53:02 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] CORS policy execution successful.
+[2026-05-17 11:53:02 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:53:02 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:53:08 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:53:08 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] CORS policy execution successful.
+[2026-05-17 11:53:08 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:53:08 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:53:11 WRN] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2026-05-17 11:53:12 WRN] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+[2026-05-17 11:53:17 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] Executed DbCommand (362ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:53:17 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] Executed DbCommand (363ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:53:17 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:53:17 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:53:18 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 15385.1858ms
+[2026-05-17 11:53:18 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 9902.9025ms
+[2026-05-17 11:53:18 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:53:18 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:53:18 INF] [CorrId: 643b0dd1-c94c-49ba-ac03-8f0d2a911dce] HTTP GET /api/Students responded 200 in 15922.3009 ms
+[2026-05-17 11:53:18 INF] [CorrId: b48f65e1-ca5e-4b3f-aebe-3828cf0a8ac8] HTTP GET /api/Students responded 200 in 10035.9464 ms
+[2026-05-17 11:53:18 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 499 null application/json; charset=utf-8 16246.8733ms
+[2026-05-17 11:53:18 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 10111.3153ms
+[2026-05-17 11:53:45 INF] [CorrId: ] Request starting HTTP/2 OPTIONS https://localhost:7018/api/Students - null null
+[2026-05-17 11:53:45 INF] [CorrId: 263b0b72-223b-446d-a71c-903092dbb4de] CORS policy execution successful.
+[2026-05-17 11:53:45 INF] [CorrId: 263b0b72-223b-446d-a71c-903092dbb4de] HTTP OPTIONS /api/Students responded 204 in 8.1600 ms
+[2026-05-17 11:53:45 INF] [CorrId: ] Request finished HTTP/2 OPTIONS https://localhost:7018/api/Students - 204 null null 36.3756ms
+[2026-05-17 11:53:45 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Students - application/json 83
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] CORS policy execution successful.
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] Route matched with {action = "CreateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateStudent(StudentWebAPI.DTO.CreateStudentDTO) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] Executed action StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI) in 243.5447ms
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-05-17 11:53:45 INF] [CorrId: e96297d7-a1da-4a00-8950-f65c2298685d] HTTP POST /api/Students responded 400 in 281.6687 ms
+[2026-05-17 11:53:45 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Students - 400 null application/problem+json; charset=utf-8 310.0657ms
+[2026-05-17 11:54:05 INF] [CorrId: ] Request starting HTTP/2 OPTIONS https://localhost:7018/api/Students - null null
+[2026-05-17 11:54:05 INF] [CorrId: aa2ba324-4ec9-4916-ab94-12acfb55fbb5] CORS policy execution successful.
+[2026-05-17 11:54:05 INF] [CorrId: aa2ba324-4ec9-4916-ab94-12acfb55fbb5] HTTP OPTIONS /api/Students responded 204 in 3.1334 ms
+[2026-05-17 11:54:05 INF] [CorrId: ] Request finished HTTP/2 OPTIONS https://localhost:7018/api/Students - 204 null null 15.0035ms
+[2026-05-17 11:54:05 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Students - application/json 87
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] CORS policy execution successful.
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] Route matched with {action = "CreateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateStudent(StudentWebAPI.DTO.CreateStudentDTO) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] Executed action StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI) in 10.1258ms
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.CreateStudent (StudentWebAPI)'
+[2026-05-17 11:54:05 INF] [CorrId: 4bb31e9c-21ef-497f-bcd4-13e073029071] HTTP POST /api/Students responded 400 in 30.6633 ms
+[2026-05-17 11:54:05 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Students - 400 null application/problem+json; charset=utf-8 62.6593ms
+[2026-05-17 11:54:09 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] CORS policy execution successful.
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 195.465ms
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:54:09 INF] [CorrId: f684f9db-15b0-4380-86c3-24b76a413170] HTTP GET /api/Students responded 200 in 215.7914 ms
+[2026-05-17 11:54:09 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 235.0215ms
+[2026-05-17 11:54:19 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students/18 - null null
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] CORS policy execution successful.
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Fetching student with Id 18
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 265.1695ms
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-17 11:54:19 INF] [CorrId: 7ed369c4-e4f0-4f0a-b977-ad720d3b63cb] HTTP GET /api/Students/18 responded 200 in 343.0674 ms
+[2026-05-17 11:54:19 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students/18 - 200 null application/json; charset=utf-8 374.3018ms
+[2026-05-17 11:54:30 INF] [CorrId: ] Request starting HTTP/2 OPTIONS https://localhost:7018/api/Students/18 - null null
+[2026-05-17 11:54:30 INF] [CorrId: 93817ec2-eda0-49d4-8b16-cfbb3988fa9a] CORS policy execution successful.
+[2026-05-17 11:54:30 INF] [CorrId: 93817ec2-eda0-49d4-8b16-cfbb3988fa9a] HTTP OPTIONS /api/Students/18 responded 204 in 3.2691 ms
+[2026-05-17 11:54:30 INF] [CorrId: ] Request finished HTTP/2 OPTIONS https://localhost:7018/api/Students/18 - 204 null null 16.8908ms
+[2026-05-17 11:54:30 INF] [CorrId: ] Request starting HTTP/2 PUT https://localhost:7018/api/Students/18 - application/json 92
+[2026-05-17 11:54:30 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] CORS policy execution successful.
+[2026-05-17 11:54:30 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-05-17 11:54:30 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Route matched with {action = "UpdateStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStudent(Int32, StudentWebAPI.DTO.UpdateStudentDto) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:54:30 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Executed DbCommand (23ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-05-17 11:54:31 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Executed DbCommand (22ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Students] SET [PhoneNumber] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+[2026-05-17 11:54:31 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-17 11:54:31 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Executed action StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI) in 330.2941ms
+[2026-05-17 11:54:31 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.UpdateStudent (StudentWebAPI)'
+[2026-05-17 11:54:31 INF] [CorrId: c121c53b-5855-4e14-b0f2-5e5287188e95] HTTP PUT /api/Students/18 responded 200 in 360.9747 ms
+[2026-05-17 11:54:31 INF] [CorrId: ] Request finished HTTP/2 PUT https://localhost:7018/api/Students/18 - 200 null application/json; charset=utf-8 379.8947ms
+[2026-05-17 11:54:38 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] CORS policy execution successful.
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 40.0413ms
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:54:38 INF] [CorrId: 9368412a-3d50-47d1-8c5f-6ee5c1a283ce] HTTP GET /api/Students responded 200 in 72.5212 ms
+[2026-05-17 11:54:38 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 93.8026ms
+[2026-05-17 11:54:42 INF] [CorrId: ] Request starting HTTP/2 OPTIONS https://localhost:7018/api/Students/18 - null null
+[2026-05-17 11:54:42 INF] [CorrId: 1c9c9ea1-5cd8-4305-a46f-9791037f7416] CORS policy execution successful.
+[2026-05-17 11:54:42 INF] [CorrId: 1c9c9ea1-5cd8-4305-a46f-9791037f7416] HTTP OPTIONS /api/Students/18 responded 204 in 2.3622 ms
+[2026-05-17 11:54:42 INF] [CorrId: ] Request finished HTTP/2 OPTIONS https://localhost:7018/api/Students/18 - 204 null null 15.6344ms
+[2026-05-17 11:54:42 INF] [CorrId: ] Request starting HTTP/2 DELETE https://localhost:7018/api/Students/18 - null null
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] CORS policy execution successful.
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.DeleteStudent (StudentWebAPI)'
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Route matched with {action = "DeleteStudent", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteStudent(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Students]
+OUTPUT 1
+WHERE [Id] = @p0;
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Executing StatusCodeResult, setting HTTP status code 204
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Executed action StudentWebAPI.Controllers.StudentsController.DeleteStudent (StudentWebAPI) in 122.336ms
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.DeleteStudent (StudentWebAPI)'
+[2026-05-17 11:54:42 INF] [CorrId: d6b2e162-7a07-4aeb-affd-30254ee3e931] HTTP DELETE /api/Students/18 responded 204 in 146.6925 ms
+[2026-05-17 11:54:42 INF] [CorrId: ] Request finished HTTP/2 DELETE https://localhost:7018/api/Students/18 - 204 null null 164.2742ms
+[2026-05-17 11:55:07 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:55:08 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] CORS policy execution successful.
+[2026-05-17 11:55:08 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:55:09 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:55:10 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] Executed DbCommand (246ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:55:11 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:55:12 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 1530.1641ms
+[2026-05-17 11:55:12 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:55:12 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:55:12 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] CORS policy execution successful.
+[2026-05-17 11:55:12 INF] [CorrId: 3117ee50-5ca8-4a41-9054-c4b1d2997078] HTTP GET /api/Students responded 200 in 4805.8065 ms
+[2026-05-17 11:55:12 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:55:13 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 5639.3529ms
+[2026-05-17 11:55:13 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:55:13 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:55:13 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:55:13 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 224.6205ms
+[2026-05-17 11:55:13 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:55:13 INF] [CorrId: eac290ec-3b8a-4880-8307-accde63961c4] HTTP GET /api/Students responded 200 in 986.9177 ms
+[2026-05-17 11:55:13 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 1705.8546ms
+[2026-05-17 11:55:54 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] CORS policy execution successful.
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] Executed DbCommand (19ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 110.0751ms
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-17 11:55:55 INF] [CorrId: 83fcc499-cd57-4aef-b361-a2c00d39b5b5] HTTP GET /api/Students responded 200 in 179.7442 ms
+[2026-05-17 11:55:55 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 246.205ms

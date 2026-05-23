@@ -49,8 +49,19 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AngularPolicy",
+            policy =>
+            {
+                policy.WithOrigins("http://localhost:57751")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            });
+    });
 
 var app = builder.Build();
+
 app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseSerilogRequestLogging();
@@ -64,6 +75,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AngularPolicy");
 app.UseAuthorization();
 
 app.MapControllers();

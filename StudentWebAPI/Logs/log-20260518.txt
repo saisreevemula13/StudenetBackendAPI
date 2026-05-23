@@ -1,0 +1,14 @@
+[2026-05-18 22:00:40 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - null null
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] CORS policy execution successful.
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] Route matched with {action = "GetStudents", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudents(System.String, System.String, System.String, System.Nullable`1[System.Boolean], Int32, Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_0 ROWS ONLY
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[StudentWebAPI.DTO.StudentDto, StudentWebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] Executed action StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI) in 75.4495ms
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudents (StudentWebAPI)'
+[2026-05-18 22:00:41 INF] [CorrId: 6fa0ba93-04e5-4bf3-a0d2-fc18034857b7] HTTP GET /api/Students responded 200 in 120.1622 ms
+[2026-05-18 22:00:41 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students?PageNumber=1&PageSize=12 - 200 null application/json; charset=utf-8 229.4879ms
