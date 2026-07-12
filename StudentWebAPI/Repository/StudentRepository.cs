@@ -48,7 +48,7 @@ namespace StudentWebAPI.Repository
             }
 
             //Pagination
-            var skipResults = (PageNumber = 1) * PageSize;
+            var skipResults = (PageNumber - 1) * PageSize;
             return await studentList.Skip(skipResults).Take(PageSize).ToListAsync();
         }
 

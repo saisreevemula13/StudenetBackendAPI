@@ -1,0 +1,136 @@
+[2026-05-24 17:04:20 INF] [CorrId: ] User profile is available. Using 'C:\Users\saisr\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-24 17:04:20 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-05-24 17:04:20 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-05-24 17:04:20 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-05-24 17:04:20 INF] [CorrId: ] Hosting environment: Development
+[2026-05-24 17:04:20 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI
+[2026-05-24 17:04:21 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+[2026-05-24 17:04:21 INF] [CorrId: 827aa0c1-7f95-4316-8a14-6912498c70ea] HTTP GET /swagger/index.html responded 200 in 55.0778 ms
+[2026-05-24 17:04:21 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-24 17:04:21 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+[2026-05-24 17:04:21 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 226.185ms
+[2026-05-24 17:04:21 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 9.1809ms
+[2026-05-24 17:04:21 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 110.9243ms
+[2026-05-24 17:04:21 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+[2026-05-24 17:04:21 INF] [CorrId: 7f27bfd9-24c5-422a-8c71-6ae878df6643] HTTP GET /swagger/v1/swagger.json responded 200 in 18.3807 ms
+[2026-05-24 17:04:21 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.5021ms
+[2026-05-24 17:04:42 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:04:42 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:04:42 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:04:43 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Fetching student from DB with Id 2
+[2026-05-24 17:04:46 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Executed DbCommand (137ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-05-24 17:04:46 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:04:46 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 3853.9174ms
+[2026-05-24 17:04:46 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:04:46 INF] [CorrId: a3d53347-7604-48be-939a-88d923592ceb] HTTP GET /api/Students/2 responded 200 in 4139.5253 ms
+[2026-05-24 17:04:46 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 4159.3067ms
+[2026-05-24 17:05:12 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] Student fetched from cache with Id 2
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 17.4872ms
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:12 INF] [CorrId: 5f0d5c49-19bf-464d-9c9b-589688b19487] HTTP GET /api/Students/2 responded 200 in 32.6424 ms
+[2026-05-24 17:05:12 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 52.6751ms
+[2026-05-24 17:05:20 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] Student fetched from cache with Id 2
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 15.8458ms
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:20 INF] [CorrId: 20df29f3-3f37-45a2-91e0-8b6563f818f3] HTTP GET /api/Students/2 responded 200 in 35.0901 ms
+[2026-05-24 17:05:20 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 47.2897ms
+[2026-05-24 17:05:23 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] Student fetched from cache with Id 2
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 1.7527ms
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:23 INF] [CorrId: cfd728da-6745-4f90-a3ed-93cdd582d76a] HTTP GET /api/Students/2 responded 200 in 4.5738 ms
+[2026-05-24 17:05:23 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 7.931ms
+[2026-05-24 17:05:25 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] Student fetched from cache with Id 2
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 15.9038ms
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:25 INF] [CorrId: 5f1f728f-4f2a-4974-a38a-d22a7d2ea773] HTTP GET /api/Students/2 responded 200 in 62.3483 ms
+[2026-05-24 17:05:25 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 80.6507ms
+[2026-05-24 17:05:27 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] Student fetched from cache with Id 2
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 18.6547ms
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:27 INF] [CorrId: eab37893-8fdf-4165-b2d2-34a480d79986] HTTP GET /api/Students/2 responded 200 in 59.8193 ms
+[2026-05-24 17:05:27 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 76.2353ms
+[2026-05-24 17:05:29 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/2 - null null
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] Student fetched from cache with Id 2
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 7.345ms
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:29 INF] [CorrId: 1b7b55fb-3cd4-44f1-94ec-cbbbbf7c8729] HTTP GET /api/Students/2 responded 200 in 16.7696 ms
+[2026-05-24 17:05:29 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/2 - 200 null application/json; charset=utf-8 24.6191ms
+[2026-05-24 17:05:36 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/4 - null null
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Fetching student from DB with Id 4
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 68.089ms
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:36 INF] [CorrId: e7c744fb-ad2a-46cf-befe-31bfbda75630] HTTP GET /api/Students/4 responded 200 in 83.9726 ms
+[2026-05-24 17:05:36 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/4 - 200 null application/json; charset=utf-8 98.8214ms
+[2026-05-24 17:05:38 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/4 - null null
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] Student fetched from cache with Id 4
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] Executing OkObjectResult, writing value of type 'StudentWebAPI.DTO.StudentDto'.
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 11.2301ms
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:38 INF] [CorrId: f1c7cf1d-0358-4901-9b15-819de1d4acf4] HTTP GET /api/Students/4 responded 200 in 26.2281 ms
+[2026-05-24 17:05:38 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/4 - 200 null application/json; charset=utf-8 39.3235ms
+[2026-05-24 17:05:45 INF] [CorrId: ] Request starting HTTP/1.1 GET https://localhost:7018/api/Students/90 - null null
+[2026-05-24 17:05:45 INF] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Executing endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:45 INF] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Route matched with {action = "GetStudentById", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetStudentById(Int32) on controller StudentWebAPI.Controllers.StudentsController (StudentWebAPI).
+[2026-05-24 17:05:45 INF] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Fetching student from DB with Id 90
+[2026-05-24 17:05:45 INF] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Age], [s].[CreatedDate], [s].[Email], [s].[Name], [s].[PhoneNumber]
+FROM [Students] AS [s]
+WHERE [s].[Id] = @__id_0
+[2026-05-24 17:05:45 WRN] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Student not found with Id 90
+[2026-05-24 17:05:45 INF] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Executed action StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI) in 868.3165ms
+[2026-05-24 17:05:45 INF] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] Executed endpoint 'StudentWebAPI.Controllers.StudentsController.GetStudentById (StudentWebAPI)'
+[2026-05-24 17:05:46 ERR] [CorrId: 15418a8d-b739-4a83-9213-aeea5d2f2502] HTTP GET /api/Students/90 responded 500 in 922.6548 ms
+StudentWebAPI.Exceptions.NotFoundException: Student with 90 is not found
+   at StudentWebAPI.Service.StudentService.GetStudentById(Int32 id) in C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI\Service\StudentService.cs:line 68
+   at StudentWebAPI.Controllers.StudentsController.GetStudentById(Int32 id) in C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI\Controllers\StudentsController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-24 17:05:46 INF] [CorrId: ] Request finished HTTP/1.1 GET https://localhost:7018/api/Students/90 - 404 null application/json 1253.4293ms

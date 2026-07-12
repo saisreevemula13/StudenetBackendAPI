@@ -21,7 +21,9 @@ namespace StudentWebAPI.Controllers
         public async Task<IActionResult> GetStudents([FromQuery] string? FilterOn, [FromQuery] string? FilterQuery, 
             [FromQuery] string? sortBy, [FromQuery] bool? isAscending, [FromQuery] int PageNumber=1, [FromQuery] int PageSize=1000)
         {
+            
             var students = await _studentService.GetAllStudents(FilterOn, FilterQuery, sortBy, isAscending ?? true,PageNumber, PageSize);
+
             return Ok(students);
         }
 

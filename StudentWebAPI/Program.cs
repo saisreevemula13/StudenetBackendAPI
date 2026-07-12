@@ -1,16 +1,21 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using StudentWebAPI.Data;
+using StudentWebAPI.Identity;
 using StudentWebAPI.Mappings;
 using StudentWebAPI.Middlewares;
 using StudentWebAPI.Repository;
 using StudentWebAPI.Service;
-using StudentWebAPI.Validators.Student;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-//Serilog config
+
+// Serilog Configuration
 Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .WriteTo.Console(outputTemplate:
@@ -24,49 +29,110 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// Add services to the container.
-
+// Controllers
 builder.Services.AddControllers();
+
+// Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Memory Cache
+builder.Services.AddMemoryCache();
+
+// Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequiredLength = 8;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+// JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme =
+        JwtBearerDefaults.AuthenticationScheme;
+
+    options.DefaultChallengeScheme =
+        JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters =
+        new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+
+            ValidIssuer =
+                builder.Configuration["Jwt:Issuer"],
+
+            ValidAudience =
+                builder.Configuration["Jwt:Audience"],
+
+            IssuerSigningKey =
+                new SymmetricSecurityKey(
+                    Encoding.UTF8.GetBytes(
+                        builder.Configuration["Jwt:Key"]))
+        };
+});
+
+// Repositories
+builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
-builder.Services.AddScoped<IEventService,EventServicecs>();
-builder.Services.AddScoped<IRegistrationRepository,RegisterRepository>();
-builder.Services.AddScoped<IRegistrationService,RegistrationService>();
-builder.Services.AddSingleton<InMemoryStudentStore>();
+builder.Services.AddScoped<IRegistrationRepository, RegisterRepository>();
+
+// Services
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IEventService, EventServicecs>();
+builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 
+builder.Services.AddSingleton<InMemoryStudentStore>();
+
+// FluentValidation
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
-builder.Services.AddFluentValidationAutoValidation(options=>
-    {
-    options.DisableDataAnnotationsValidation = true;
-    });
 
+builder.Services.AddFluentValidationAutoValidation(options =>
+{
+    options.DisableDataAnnotationsValidation = true;
+});
+
+// AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// CORS
 builder.Services.AddCors(options =>
-    {
-        options.AddPolicy("AngularPolicy",
-            policy =>
-            {
-                policy.WithOrigins("http://localhost:57751")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-            });
-    });
+{
+    options.AddPolicy("AngularPolicy",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
+// Middleware
 app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseSerilogRequestLogging();
 
-// Configure the HTTP request pipeline.
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -76,9 +142,21 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AngularPolicy");
+
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
-app.Run();
 
-// CI test change
+// ROLE SEEDER
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager =
+        scope.ServiceProvider
+             .GetRequiredService<RoleManager<IdentityRole>>();
+
+    await RoleSeeder.SeedRolesAsync(roleManager);
+}
+
+app.MapControllers();
+
+app.Run();

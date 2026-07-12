@@ -20,9 +20,9 @@ namespace StudentWebAPI.Validators.Student
                 .EmailAddress()
                 .When(x=>!string.IsNullOrEmpty(x.Email));
 
-            RuleFor(x=>x.PhoneNumber)
-                .Matches(@"^[0-9]{10}$")
-                .When(x=>!string.IsNullOrEmpty(x.PhoneNumber));
+            RuleFor(x => x.PhoneNumber)
+               .NotEmpty()
+               .Matches(@"^[0-9]{10}$");
         }
     }
 }

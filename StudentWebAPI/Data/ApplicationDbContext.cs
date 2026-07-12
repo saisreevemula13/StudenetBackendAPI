@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudentWebAPI.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using StudentWebAPI.Identity;
 
 namespace StudentWebAPI.Data
 {
-    public class ApplicationDbContext:DbContext
+    public class ApplicationDbContext: IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
@@ -15,6 +17,7 @@ namespace StudentWebAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Student>()
             .HasIndex(x => x.Email)
             .IsUnique();

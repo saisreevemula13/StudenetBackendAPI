@@ -1,0 +1,309 @@
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-05-23 16:37:07 INF] [CorrId: ] Applying migration '20260523110641_AddIdentityTables'.
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FullName] nvarchar(max) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+[2026-05-23 16:37:07 INF] [CorrId: ] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260523110641_AddIdentityTables', N'8.0.8');
+[2026-05-23 16:37:54 INF] [CorrId: ] User profile is available. Using 'C:\Users\saisr\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-23 16:37:54 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-05-23 16:37:54 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-05-23 16:37:54 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-05-23 16:37:54 INF] [CorrId: ] Hosting environment: Development
+[2026-05-23 16:37:54 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI
+[2026-05-23 16:38:03 INF] [CorrId: ] User profile is available. Using 'C:\Users\saisr\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-23 16:38:03 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-05-23 16:38:03 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-05-23 16:38:04 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-05-23 16:38:04 INF] [CorrId: ] Hosting environment: Development
+[2026-05-23 16:38:04 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI
+[2026-05-23 16:38:04 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+[2026-05-23 16:38:05 INF] [CorrId: 87d543a2-9357-4a92-b4a8-247e574589e6] HTTP GET /swagger/index.html responded 200 in 153.8694 ms
+[2026-05-23 16:38:05 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+[2026-05-23 16:38:05 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-23 16:38:05 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 948.7715ms
+[2026-05-23 16:38:05 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 64.3552ms
+[2026-05-23 16:38:06 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 197.5015ms
+[2026-05-23 16:38:06 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+[2026-05-23 16:38:06 INF] [CorrId: eb7e429d-ee5d-4601-8ea9-60f9b726aa2e] HTTP GET /swagger/v1/swagger.json responded 200 in 39.9492 ms
+[2026-05-23 16:38:06 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.8452ms
+[2026-05-23 16:38:56 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Auth/register - application/json 121
+[2026-05-23 16:38:56 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] CORS policy execution failed.
+[2026-05-23 16:38:56 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] Request origin https://localhost:7018 does not have permission to access the resource.
+[2026-05-23 16:38:56 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] Executing endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:38:57 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(StudentWebAPI.Auth.DTOs.RegisterDto) on controller StudentWebAPI.Auth.AuthController (StudentWebAPI).
+[2026-05-23 16:39:13 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityError, Microsoft.Extensions.Identity.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+[2026-05-23 16:39:13 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] Executed action StudentWebAPI.Auth.AuthController.Register (StudentWebAPI) in 16099.1147ms
+[2026-05-23 16:39:13 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] Executed endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:39:13 INF] [CorrId: c95c454d-ed60-4b89-a361-a3123c85d23c] HTTP POST /api/Auth/register responded 400 in 16621.5464 ms
+[2026-05-23 16:39:18 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Auth/register - 400 null application/json; charset=utf-8 21876.3964ms
+[2026-05-23 16:39:33 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Auth/register - application/json 121
+[2026-05-23 16:39:33 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] CORS policy execution failed.
+[2026-05-23 16:39:33 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Request origin https://localhost:7018 does not have permission to access the resource.
+[2026-05-23 16:39:33 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executing endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:39:33 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(StudentWebAPI.Auth.DTOs.RegisterDto) on controller StudentWebAPI.Auth.AuthController (StudentWebAPI).
+[2026-05-23 16:39:39 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executed DbCommand (150ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2026-05-23 16:39:39 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executed DbCommand (29ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+[2026-05-23 16:39:44 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executed DbCommand (22ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+[2026-05-23 16:39:44 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+[2026-05-23 16:39:44 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executed action StudentWebAPI.Auth.AuthController.Register (StudentWebAPI) in 11889.5939ms
+[2026-05-23 16:39:44 INF] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] Executed endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:39:45 ERR] [CorrId: 72d2fa00-339d-45d7-a7da-e55ae2966c1d] HTTP POST /api/Auth/register responded 500 in 11928.2134 ms
+System.InvalidOperationException: Role STUDENT does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at StudentWebAPI.Auth.AuthController.Register(RegisterDto dto) in C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI\Auth\AuthController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-23 16:40:09 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Auth/register - 500 null application/json 36670.7587ms
+[2026-05-23 16:40:20 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Auth/register - application/json 121
+[2026-05-23 16:40:20 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] CORS policy execution failed.
+[2026-05-23 16:40:20 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Request origin https://localhost:7018 does not have permission to access the resource.
+[2026-05-23 16:40:20 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Executing endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:40:20 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(StudentWebAPI.Auth.DTOs.RegisterDto) on controller StudentWebAPI.Auth.AuthController (StudentWebAPI).
+[2026-05-23 16:40:23 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Executed DbCommand (27ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2026-05-23 16:40:27 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityError, Microsoft.Extensions.Identity.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+[2026-05-23 16:40:27 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Executed action StudentWebAPI.Auth.AuthController.Register (StudentWebAPI) in 6730.0852ms
+[2026-05-23 16:40:27 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] Executed endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:40:27 INF] [CorrId: cb5e8726-fd0f-42fa-a969-a7fbe46b3565] HTTP POST /api/Auth/register responded 400 in 6761.7127 ms
+[2026-05-23 16:40:30 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Auth/register - 400 null application/json; charset=utf-8 10226.9392ms
+[2026-05-23 16:40:57 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Auth/register - application/json 113
+[2026-05-23 16:41:09 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] CORS policy execution failed.
+[2026-05-23 16:41:09 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Request origin https://localhost:7018 does not have permission to access the resource.
+[2026-05-23 16:41:09 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executing endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:41:09 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(StudentWebAPI.Auth.DTOs.RegisterDto) on controller StudentWebAPI.Auth.AuthController (StudentWebAPI).
+[2026-05-23 16:41:10 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executed DbCommand (19ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2026-05-23 16:41:10 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+[2026-05-23 16:41:10 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executed DbCommand (14ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+[2026-05-23 16:41:10 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+[2026-05-23 16:41:10 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executed action StudentWebAPI.Auth.AuthController.Register (StudentWebAPI) in 1896.1583ms
+[2026-05-23 16:41:10 INF] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] Executed endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:41:11 ERR] [CorrId: 0318ddcf-673b-4ecf-81f2-2c53416345b4] HTTP POST /api/Auth/register responded 500 in 1923.1230 ms
+System.InvalidOperationException: Role STUDENT does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at StudentWebAPI.Auth.AuthController.Register(RegisterDto dto) in C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI\Auth\AuthController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-23 16:41:11 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Auth/register - 500 null application/json 13193.7849ms
+[2026-05-23 16:42:48 INF] [CorrId: ] User profile is available. Using 'C:\Users\saisr\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-23 16:42:48 INF] [CorrId: ] Now listening on: https://localhost:7018
+[2026-05-23 16:42:48 INF] [CorrId: ] Now listening on: http://localhost:5170
+[2026-05-23 16:42:48 INF] [CorrId: ] Application started. Press Ctrl+C to shut down.
+[2026-05-23 16:42:48 INF] [CorrId: ] Hosting environment: Development
+[2026-05-23 16:42:48 INF] [CorrId: ] Content root path: C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI
+[2026-05-23 16:42:49 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+[2026-05-23 16:42:49 INF] [CorrId: 1473795f-b744-449c-a6d0-cfbf0dae95fb] HTTP GET /swagger/index.html responded 200 in 52.7407 ms
+[2026-05-23 16:42:49 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-23 16:42:49 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+[2026-05-23 16:42:49 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 212.0844ms
+[2026-05-23 16:42:49 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 12.1793ms
+[2026-05-23 16:42:49 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.1786ms
+[2026-05-23 16:42:49 INF] [CorrId: ] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+[2026-05-23 16:42:49 INF] [CorrId: 5593a7db-e20d-436f-8759-6de7759493d9] HTTP GET /swagger/v1/swagger.json responded 200 in 42.0795 ms
+[2026-05-23 16:42:49 INF] [CorrId: ] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 63.026ms
+[2026-05-23 16:43:25 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Auth/register - application/json 118
+[2026-05-23 16:43:25 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] CORS policy execution failed.
+[2026-05-23 16:43:25 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] Request origin https://localhost:7018 does not have permission to access the resource.
+[2026-05-23 16:43:26 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] Executing endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:43:26 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(StudentWebAPI.Auth.DTOs.RegisterDto) on controller StudentWebAPI.Auth.AuthController (StudentWebAPI).
+[2026-05-23 16:43:38 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityError, Microsoft.Extensions.Identity.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+[2026-05-23 16:43:38 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] Executed action StudentWebAPI.Auth.AuthController.Register (StudentWebAPI) in 12717.2339ms
+[2026-05-23 16:43:38 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] Executed endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:43:38 INF] [CorrId: 479d8b31-a4d9-4423-9748-34ef5a630c02] HTTP POST /api/Auth/register responded 400 in 12955.9518 ms
+[2026-05-23 16:43:42 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Auth/register - 400 null application/json; charset=utf-8 16910.1831ms
+[2026-05-23 16:43:54 INF] [CorrId: ] Request starting HTTP/2 POST https://localhost:7018/api/Auth/register - application/json 118
+[2026-05-23 16:43:54 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] CORS policy execution failed.
+[2026-05-23 16:43:54 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Request origin https://localhost:7018 does not have permission to access the resource.
+[2026-05-23 16:43:54 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executing endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:43:54 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(StudentWebAPI.Auth.DTOs.RegisterDto) on controller StudentWebAPI.Auth.AuthController (StudentWebAPI).
+[2026-05-23 16:43:59 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executed DbCommand (102ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+[2026-05-23 16:44:00 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executed DbCommand (36ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+[2026-05-23 16:44:00 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executed DbCommand (6ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+[2026-05-23 16:44:00 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+[2026-05-23 16:44:00 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executed action StudentWebAPI.Auth.AuthController.Register (StudentWebAPI) in 5711.2554ms
+[2026-05-23 16:44:00 INF] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] Executed endpoint 'StudentWebAPI.Auth.AuthController.Register (StudentWebAPI)'
+[2026-05-23 16:44:00 ERR] [CorrId: 7389def0-9428-4ea0-8663-37dc898134d4] HTTP POST /api/Auth/register responded 500 in 5756.6259 ms
+System.InvalidOperationException: Role STUDENT does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at StudentWebAPI.Auth.AuthController.Register(RegisterDto dto) in C:\Users\saisr\source\repos\StudentFullStack\StudentWebAPI\StudentWebAPI\Auth\AuthController.cs:line 38
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-23 16:44:00 INF] [CorrId: ] Request finished HTTP/2 POST https://localhost:7018/api/Auth/register - 500 null application/json 6084.0437ms
